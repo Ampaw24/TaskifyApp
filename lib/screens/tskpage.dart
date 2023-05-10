@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:todome/widget/tasks.dart';
+import 'package:provider/provider.dart';
+import 'package:todome/models/dataprovider.dart';
 import 'package:todome/screens/addtask.dart';
 
 class TaskScreen extends StatelessWidget {
-  const TaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class TaskScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  "Todoey",
+                Provider.of<DataClass>(context).data,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 50,
@@ -63,15 +63,13 @@ class TaskScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 19),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
-                  color: Colors.white),
-              child: TaskList(),
-            ),
-          )
+                padding: const EdgeInsets.symmetric(horizontal: 19),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    color: Colors.white),
+                child: Container(),))
         ],
       ),
     );
